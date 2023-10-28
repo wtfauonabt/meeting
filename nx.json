@@ -1,0 +1,36 @@
+{
+    "targetDefaults": {
+        "test": {
+            "inputs": ["default", "^default", "{workspaceRoot}/jest.preset.js"]
+        },
+        "lint": {
+            "inputs": [
+                "default",
+                "{workspaceRoot}/.eslintrc.json",
+                "{workspaceRoot}/.eslintignore",
+                "{workspaceRoot}/eslint.config.js"
+            ]
+        }
+    },
+    "affected": {
+        "defaultBase": "main"
+    },
+    "nxCloudAccessToken": "OTY2NjU4MWEtNDMwZS00YTNlLTk0NWYtNGM0N2Y2Zjc4NGYxfHJlYWQtd3JpdGU=",
+    "generators": {
+        "@nx/react": {
+            "application": {
+                "style": "scss",
+                "linter": "eslint",
+                "bundler": "webpack",
+                "babel": true
+            },
+            "component": {
+                "style": "scss"
+            },
+            "library": {
+                "style": "scss",
+                "linter": "eslint"
+            }
+        }
+    }
+}

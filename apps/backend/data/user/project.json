@@ -1,0 +1,64 @@
+{
+    "name": "apps/backend/data/user",
+    "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "apps/backend/data/user/src",
+    "projectType": "application",
+    "targets": {
+        "build": {
+            "executor": "@nx/webpack:webpack",
+            "outputs": ["{options.outputPath}"],
+            "defaultConfiguration": "production",
+            "options": {
+                "target": "node",
+                "compiler": "tsc",
+                "outputPath": "dist/apps/backend/data/user",
+                "main": "apps/backend/data/user/src/main.ts",
+                "tsConfig": "apps/backend/data/user/tsconfig.app.json",
+                "assets": ["apps/backend/data/user/src/assets"],
+                "isolatedConfig": true,
+                "webpackConfig": "apps/backend/data/user/webpack.config.js"
+            },
+            "configurations": {
+                "development": {},
+                "production": {}
+            }
+        },
+        "serve": {
+            "executor": "@nx/js:node",
+            "defaultConfiguration": "development",
+            "options": {
+                "buildTarget": "apps/backend/data/user:build"
+            },
+            "configurations": {
+                "development": {
+                    "buildTarget": "apps/backend/data/user:build:development"
+                },
+                "production": {
+                    "buildTarget": "apps/backend/data/user:build:production"
+                }
+            }
+        },
+        "lint": {
+            "executor": "@nx/eslint:lint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": ["apps/backend/data/user/**/*.ts"]
+            }
+        },
+        "test": {
+            "executor": "@nx/jest:jest",
+            "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+            "options": {
+                "jestConfig": "apps/backend/data/user/jest.config.ts",
+                "passWithNoTests": true
+            },
+            "configurations": {
+                "ci": {
+                    "ci": true,
+                    "codeCoverage": true
+                }
+            }
+        }
+    },
+    "tags": []
+}
