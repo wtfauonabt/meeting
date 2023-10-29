@@ -20,7 +20,7 @@ Thumbs.db
 .nx/
 
 # Next.js
-.next
+.next/
 
 # Env files
 .env
