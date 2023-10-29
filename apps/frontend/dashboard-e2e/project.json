@@ -1,7 +1,6 @@
 {
     "name": "apps/frontend/dashboard-e2e",
     "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-    "projectType": "application",
     "sourceRoot": "apps/frontend/dashboard-e2e/src",
     "targets": {
         "e2e": {
@@ -14,9 +13,6 @@
             "configurations": {
                 "production": {
                     "devServerTarget": "apps/frontend/dashboard:serve:production"
-                },
-                "ci": {
-                    "devServerTarget": "apps/frontend/dashboard:serve-static"
                 }
             }
         },
@@ -28,6 +24,6 @@
             }
         }
     },
-    "implicitDependencies": ["apps/frontend/dashboard"],
-    "tags": []
+    "tags": [],
+    "implicitDependencies": ["apps/frontend/dashboard"]
 }
